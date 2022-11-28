@@ -1,0 +1,22 @@
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout client 10s
+    timeout connect 5s
+    timeout server 10s 
+
+frontend myfrontend
+    bind *:80
+    default_backend myservers
+
+backend myservers
+    mode http
+    balance roundrobin
+    server server1 35.76.112.178:80 check
+    server server2 54.238.43.213:80 check
+    server server3 18.183.40.55:80 check
+    server server4 35.77.95.54:80 check
+

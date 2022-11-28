@@ -1,0 +1,32 @@
+events{}
+http{
+    upstream backend{
+        least_conn;
+        server 35.76.112.178:80;
+        server 54.238.43.213:80;
+        server 18.183.40.55:80;
+        server 35.77.95.54:80;
+    }
+    server{
+        listen 80;
+        location / {
+            proxy_pass http://backend;
+            
+        }
+    }
+}
+
+////////////////////////////////////////////////
+
+events{}
+http{
+    upstream backend{
+        server 35.76.112.178:80;
+    }
+    server{
+        listen 80;
+        location / {
+            proxy_pass http://backend;
+        }
+    }
+}
