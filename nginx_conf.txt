@@ -15,18 +15,3 @@ http{
         }
     }
 }
-
-////////////////////////////////////////////////
-
-events{}
-http{
-    upstream backend{
-        server 35.76.112.178:80;
-    }
-    server{
-        listen 80;
-        location / {
-            proxy_pass http://backend;
-        }
-    }
-}
