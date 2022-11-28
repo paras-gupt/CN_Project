@@ -1,7 +1,6 @@
 global
     daemon
-    maxconn 256
-
+    
 defaults
     mode http
     timeout client 10s
